@@ -1,16 +1,20 @@
-import React, { useRef } from "react";
+export const SKELETON_VARIANTS = {
+  CIRCULAR: "circular",
+  RECTANGLE: "rectangular",
+  ROUNDED: "rounded",
+};
+
+export const SAMPLE_CODE = `
+import React, { useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
 import LoadingSkeleton from "../Loaders/LoadingSkeleton";
 
-function CodeEditor({ file, setFile }) {
+function CodeEditor() {
+  const [file, setFile] = useState();
   const editorRef = useRef(null);
 
   function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor;
-  }
-
-  function handleEditorChange(value, event) {
-    setFile(value);
   }
 
   return (
@@ -22,10 +26,10 @@ function CodeEditor({ file, setFile }) {
         theme="vs-dark"
         onMount={handleEditorDidMount}
         loading={<LoadingSkeleton height={"80vh"} />}
-        onChange={handleEditorChange}
       />
     </>
   );
 }
 
 export default CodeEditor;
+`;

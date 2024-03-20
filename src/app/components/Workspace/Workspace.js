@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 
 import Tabs from "@mui/material/Tabs";
@@ -7,6 +7,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import CustomTabPanel from "./CustomTabPanel";
 import CodeEditor from "./CodeEditor";
+import { SAMPLE_CODE } from "@/utils/constants";
 
 function tabProps(index) {
   return {
@@ -16,7 +17,8 @@ function tabProps(index) {
 }
 
 function Workspace() {
-  const [value, setValue] = React.useState(0);
+  const [file, setFile] = useState(SAMPLE_CODE);
+  const [value, setValue] = useState(0);
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
@@ -44,7 +46,7 @@ function Workspace() {
           Browser
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          <CodeEditor />
+          <CodeEditor file={file} setFile={setFile} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={3}>
           Planner

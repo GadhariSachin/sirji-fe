@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { Suspense, useState } from "react";
 import Paper from "@mui/material/Paper";
 
 import Tabs from "@mui/material/Tabs";
@@ -8,6 +10,10 @@ import Box from "@mui/material/Box";
 import CustomTabPanel from "./CustomTabPanel";
 import CodeEditor from "./CodeEditor";
 import { SAMPLE_CODE } from "../../utils/constants";
+
+import Shell from "./Shell";
+import Planner from "./Planner";
+import Browser from "./Browser";
 
 function Workspace() {
   const [file, setFile] = useState<string>(SAMPLE_CODE);
@@ -33,16 +39,20 @@ function Workspace() {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          Shell
+          <Suspense fallback={<>Loaading ....</>}>
+            <Shell />
+          </Suspense>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          Browser
+          <Browser />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           <CodeEditor file={file} setFile={setFile} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={3}>
-          Planner
+          <Suspense fallback={<>Loaading ....</>}>
+            <Planner />
+          </Suspense>
         </CustomTabPanel>
       </Box>
     </Paper>

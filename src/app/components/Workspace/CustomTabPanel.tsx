@@ -1,7 +1,15 @@
+import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-export default function CustomTabPanel(props) {
+interface CustomTabPanelPropsInterface {
+  children: React.ReactNode;
+  value: number;
+  index: number;
+  other?: any;
+}
+
+export default function CustomTabPanel(props: CustomTabPanelPropsInterface) {
   const { children, value, index, ...other } = props;
 
   return (

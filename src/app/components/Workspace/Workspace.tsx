@@ -7,20 +7,13 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import CustomTabPanel from "./CustomTabPanel";
 import CodeEditor from "./CodeEditor";
-import { SAMPLE_CODE } from "@/utils/constants";
-
-function tabProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
+import { SAMPLE_CODE } from "../../utils/constants";
 
 function Workspace() {
-  const [file, setFile] = useState(SAMPLE_CODE);
-  const [value, setValue] = useState(0);
+  const [file, setFile] = useState<string>(SAMPLE_CODE);
+  const [value, setValue] = useState<number>(0);
 
-  const handleChange = (e, newValue) => {
+  const handleChange = (e: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
@@ -57,3 +50,10 @@ function Workspace() {
 }
 
 export default Workspace;
+
+function tabProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}

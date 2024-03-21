@@ -1,11 +1,11 @@
 "use client";
 
+import React from "react";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import { ChatTerminal } from "../ChatTerminal";
-import { Workspace } from "../Workspace";
-import { Sidebar } from "../Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
+import ChatTerminal from "../ChatTerminal/ChatTerminal";
+import Workspace from "../Workspace/Workspace";
 
 export default function PageGridLayout() {
   return (

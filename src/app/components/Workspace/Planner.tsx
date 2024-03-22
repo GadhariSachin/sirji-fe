@@ -42,7 +42,7 @@ export default function Planner() {
               inputProps={{ "aria-labelledby": labelId }}
             />
           </ListItemIcon>
-          <ListItemText id={labelId} primary={`Item ${index + 1}`} />
+          <ListItemText id={labelId} primary={`Planner Step - ${index + 1}`} />
         </ListItemButton>
       </ListItem>
     );
@@ -59,8 +59,8 @@ export default function Planner() {
       <FixedSizeList
         height={780}
         width={"100%"}
-        itemSize={46}
-        itemCount={200}
+        itemSize={50}
+        itemCount={10}
         overscanCount={5}
       >
         {rowItem}
